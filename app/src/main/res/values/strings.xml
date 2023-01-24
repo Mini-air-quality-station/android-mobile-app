@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MiniAirQualityStationMobileApp</string>
+    <string name="menu_main_item">Activities</string>
+    <string name="url_menu_1">Configuration</string>
+    <string name="url_menu_2">Data</string>
+    <string name="openNavDrawer">Navigation Drawer Open</string>
+    <string name="closeNavDrawer">Navigation Drawer Closed</string>
 </resources>
