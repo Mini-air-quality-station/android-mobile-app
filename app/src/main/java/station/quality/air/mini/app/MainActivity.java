@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private String curr_url;
+    private final String GRAFANA_URL = "http://localhost:3000";
+    private final String CONFIGURATION_URL = "http://localhost:80";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements
         webView_config = findViewById(R.id.webView_config);
         webView_config.setWebViewClient(new WebViewClient());
         webView_config.getSettings().setJavaScriptEnabled(true);
-        setUrl("http://10.0.2.2/");
+        setUrl(GRAFANA_URL);
         reloadWebsite();
     }
 
@@ -72,14 +74,13 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        System.out.println("Hello there@!");
         if (item.getItemId() == R.id.url_menu_1) {
-            setUrl("https://trojmiasto.pl");
+            setUrl(CONFIGURATION_URL);
             reloadWebsite();
             return true;
         }
         else if (item.getItemId() == R.id.url_menu_2){
-            setUrl("http://127.0.0.1");
+            setUrl(GRAFANA_URL);
             reloadWebsite();
             return true;
         }
