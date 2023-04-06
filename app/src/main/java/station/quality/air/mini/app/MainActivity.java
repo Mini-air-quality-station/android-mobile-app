@@ -80,21 +80,25 @@ public class MainActivity extends AppCompatActivity implements
         if (item.getItemId() == R.id.url_menu_0) {
             setUrl(HOMEPAGE_URL);
             reloadWebsite();
+            drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         }
         else if (item.getItemId() == R.id.url_menu_1){
             setUrl(CONFIGURATION_URL);
             reloadWebsite();
+            drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         }
         else if (item.getItemId() == R.id.url_menu_2){
             setUrl(GRAFANA_URL);
             reloadWebsite();
+            drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         }
         else if (item.getItemId() == R.id.url_menu_3){
             setUrl(ABOUT_URL);
             reloadWebsite();
+            drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         }
         return false;
