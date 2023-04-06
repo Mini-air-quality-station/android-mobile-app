@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements
 
          //Change this one day - it's special macro for dev machines localhost
         webView_config = findViewById(R.id.webView_config);
+        webView_config.setWebViewClient(new WebViewClient());
         webView_config.getSettings().setJavaScriptEnabled(true);
         setUrl("http://10.0.2.2/");
         reloadWebsite();
