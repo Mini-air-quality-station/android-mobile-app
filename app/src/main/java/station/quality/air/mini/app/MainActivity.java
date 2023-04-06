@@ -13,7 +13,8 @@ import android.webkit.WebView;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements
+        NavigationView.OnNavigationItemSelectedListener{
 
     private WebView webView_config;
     private Toolbar toolbar;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerlayout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.bringToFront();
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.openNavDrawer, R.string.closeNavDrawer
@@ -40,18 +42,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         actionBarDrawerToggle.syncState();
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
 
-        navigationView.setNavigationItemSelectedListener(menuItem -> {
-            switch (menuItem.getItemId()){
-                case R.id.url_menu_1: setUrl("http://127.0.0.1"); reloadWebsite(); break;
-                case R.id.url_menu_2: setUrl("https://trojmiasto.pl"); reloadWebsite(); break;
-            }
-            return true;
-        });
+        navigationView.setNavigationItemSelectedListener(this);
 
          //Change this one day - it's special macro for dev machines localhost
         webView_config = findViewById(R.id.webView_config);
         webView_config.getSettings().setJavaScriptEnabled(true);
-        setUrl("http://10.0.2.2");
+        setUrl("http://10.0.2.2/");
         reloadWebsite();
     }
 
