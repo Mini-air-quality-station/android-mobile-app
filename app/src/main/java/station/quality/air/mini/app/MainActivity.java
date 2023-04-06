@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
@@ -22,8 +23,10 @@ public class MainActivity extends AppCompatActivity implements
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private String curr_url;
-    private final String GRAFANA_URL = "http://localhost:3000";
-    private final String CONFIGURATION_URL = "http://localhost:80";
+    private static final String GRAFANA_URL = "http://localhost:3000";
+    private static final String HOMEPAGE_URL = "http://localhost";
+    private static final String CONFIGURATION_URL = "http://localhost/configuration.php";
+    private static final String ABOUT_URL = "http://localhost/about.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements
         webView_config = findViewById(R.id.webView_config);
         webView_config.setWebViewClient(new WebViewClient());
         webView_config.getSettings().setJavaScriptEnabled(true);
-        setUrl(GRAFANA_URL);
+        setUrl(HOMEPAGE_URL);
         reloadWebsite();
     }
 
@@ -74,13 +77,23 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.url_menu_1) {
+        if (item.getItemId() == R.id.url_menu_0) {
+            setUrl(HOMEPAGE_URL);
+            reloadWebsite();
+            return true;
+        }
+        else if (item.getItemId() == R.id.url_menu_1){
             setUrl(CONFIGURATION_URL);
             reloadWebsite();
             return true;
         }
         else if (item.getItemId() == R.id.url_menu_2){
             setUrl(GRAFANA_URL);
+            reloadWebsite();
+            return true;
+        }
+        else if (item.getItemId() == R.id.url_menu_3){
+            setUrl(ABOUT_URL);
             reloadWebsite();
             return true;
         }
