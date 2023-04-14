@@ -16,7 +16,7 @@ import android.webkit.WebViewClient;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements
-        NavigationView.OnNavigationItemSelectedListener{
+        NavigationView.OnNavigationItemSelectedListener {
 
     private WebView webView_config;
     private Toolbar toolbar;
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements
 
         navigationView.setNavigationItemSelectedListener(this);
 
-         //Change this one day - it's special macro for dev machines localhost
+        //Change this one day - it's special macro for dev machines localhost
         webView_config = findViewById(R.id.webView_config);
         webView_config.setWebViewClient(new WebViewClient());
         webView_config.getSettings().setJavaScriptEnabled(true);
@@ -58,17 +58,17 @@ public class MainActivity extends AppCompatActivity implements
         reloadWebsite();
     }
 
-    void setUrl(String url){
+    void setUrl(String url) {
         this.curr_url = url;
     }
 
-    void reloadWebsite(){
+    void reloadWebsite() {
         webView_config.loadUrl(this.curr_url);
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event){
-        if (keyCode == KeyEvent.KEYCODE_BACK && this.webView_config.canGoBack()){
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && this.webView_config.canGoBack()) {
             this.webView_config.goBack();
             return true;
         }
@@ -82,20 +82,17 @@ public class MainActivity extends AppCompatActivity implements
             reloadWebsite();
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
-        }
-        else if (item.getItemId() == R.id.url_menu_1){
+        } else if (item.getItemId() == R.id.url_menu_1) {
             setUrl(CONFIGURATION_URL);
             reloadWebsite();
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
-        }
-        else if (item.getItemId() == R.id.url_menu_2){
+        } else if (item.getItemId() == R.id.url_menu_2) {
             setUrl(GRAFANA_URL);
             reloadWebsite();
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
-        }
-        else if (item.getItemId() == R.id.url_menu_3){
+        } else if (item.getItemId() == R.id.url_menu_3) {
             setUrl(ABOUT_URL);
             reloadWebsite();
             drawerLayout.closeDrawer(GravityCompat.START);
