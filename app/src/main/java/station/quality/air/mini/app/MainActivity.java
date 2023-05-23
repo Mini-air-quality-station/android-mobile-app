@@ -23,10 +23,10 @@ public class MainActivity extends AppCompatActivity implements
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private String curr_url;
-    private static final String GRAFANA_URL = "http://localhost:3000";
-    private static final String HOMEPAGE_URL = "http://localhost";
-    private static final String CONFIGURATION_URL = "http://localhost/configuration.php";
-    private static final String ABOUT_URL = "http://localhost/about.php";
+    private static final String GRAFANA_URL = "http://192.168.88.1:3000";
+    private static final String HOMEPAGE_URL = "http://192.168.88.1";
+    private static final String CONFIGURATION_URL = "http://192.168.88.1/configuration.php";
+    private static final String ABOUT_URL = "http://192.168.88.1/about.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
