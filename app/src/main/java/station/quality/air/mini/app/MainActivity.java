@@ -10,6 +10,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -53,7 +54,9 @@ public class MainActivity extends AppCompatActivity implements
         //Change this one day - it's special macro for dev machines localhost
         webView_config = findViewById(R.id.webView_config);
         webView_config.setWebViewClient(new WebViewClient());
-        webView_config.getSettings().setJavaScriptEnabled(true);
+        WebSettings webSettings = webView_config.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setDomStorageEnabled(true);
         setUrl(HOMEPAGE_URL);
         reloadWebsite();
     }
