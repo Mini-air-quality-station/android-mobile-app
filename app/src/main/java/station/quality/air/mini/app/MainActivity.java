@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements
             dm.enqueue(request);
             Toast.makeText(this, "Download started!", Toast.LENGTH_SHORT).show();
         });
-        
+
         setUrl(HOMEPAGE_URL);
         reloadWebsite();
     }
